@@ -131,8 +131,8 @@ function calcularMateria(n1,n2,n3,n4,n5){
 calcularMateria(3,3,2.5,4,3.7);
 
 /** PUNTO 13
- * Escriba una función que reciba un número entero y dicha función pueda determinar
-si el número enviado es positivo o negativo.
+ * Escriba una función que reciba un número entero y dicha función pueda determinar si el número enviado 
+ * es positivo o negativo.
  */
 function determinarNumero(numero){
     if(numero>=0){
@@ -164,9 +164,8 @@ function permitirAcceso(edad, estatura, permisoParental) {
 console.log(permitirAcceso(20, 160, false));
 
 /**PUNTO 15
- *Escriba una función generarContraseña la cual reciba n como parámetro y esta cree
-una contraseña de n caracteres aleatorios. (Los caracteres pueden ser números,
-letras o signos).
+ *Escriba una función generarContraseña la cual reciba n como parámetro y esta cree una contraseña 
+de n caracteres aleatorios. (Los caracteres pueden ser números, letras o signos).
  */
 function generarContraseña(n){
     const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:',.<>?/`~";
@@ -182,11 +181,10 @@ console.log(generarContraseña(10));
 /**PUNTO 16
  * Escriba una función que se llame facturacion() La función tiene que recibir como
 parámetro el monto de un producto , y el medio de pago : C (tarjeta de crédito), E (efectivo) y D (tarjeta de débito).
- Si el monto del producto es menor a $200 no se
-aplicará ningún descuento. Si el monto a pagar es entre $200 y $400 se aplicará un
-descuento del 30% si el medio de pago es efectivo, 20% si se realiza con débito y
-10% con tarjeta de crédito. Para montos mayores a $400, el descuento es del 40%
-sin importar el medio de pago La función deberá retornar el monto final a pagar.
+Si el monto del producto es menor a $200 no se aplicará ningún descuento. Si el monto a pagar es
+entre $200 y $400 se aplicará un descuento del 30% si el medio de pago es efectivo, 20% si se realiza con débito y
+10% con tarjeta de crédito. Para montos mayores a $400, el descuento es del 40% sin importar el medio 
+de pago La función deberá retornar el monto final a pagar.
  */
 function facturacion(monto, medioPago) {
     let descuento = 0;
@@ -209,9 +207,8 @@ function facturacion(monto, medioPago) {
 console.log(facturacion(150, 'E'));
 
 /**PUNTO 17 
- * Escriba una función la cual reciba como parámetro 2 números enteros y 1 cadena,
-La idea es que los números recibidos se puedan operar según la operación que
-hallamos recibido en la cadena, ejemplo miFuncion(2, 5, ”suma”).
+ * Escriba una función la cual reciba como parámetro 2 números enteros y 1 cadena, La idea es que los números 
+ * recibidos se puedan operar según la operación que hallamos recibido en la cadena, ejemplo miFuncion(2, 5, ”suma”).
  */
 function miFuncion(num1, num2, operacion) {
     switch (operacion) {
@@ -237,10 +234,9 @@ let num2 = prompt("Ingrese el segundo valor");
 console.log(miFuncion(num1, num2, operacion));
 
 /** PUNTO 18
- * Escriba una función que tenga una cadena de ADN como parámetro y retorne un
-string con el número de bases en ella, por ejemplo, si la cadena es “AACAGT”
-entonces debe retornar “Cantidad de A: 3, Cantidad de C: 1, Cantidad de G: 1,
-Cantidad de T: 1”
+ * Escriba una función que tenga una cadena de ADN como parámetro y retorne un string con el número de bases 
+ * en ella, por ejemplo, si la cadena es “AACAGT” entonces debe retornar “Cantidad de A: 3, Cantidad de 
+ * C: 1, Cantidad de G: 1, Cantidad de T: 1”
  */
 function contarBasesADN(cadenaADN) {
     let cantidadA = 0;
@@ -270,8 +266,7 @@ function contarBasesADN(cadenaADN) {
 console.log(contarBasesADN("AACAGT"));
 
 /** PUNTO 19
- * Escriba un programa que convierta entre grados Celsius y Fahrenheit utilizando dos
-funciones:
+ * Escriba un programa que convierta entre grados Celsius y Fahrenheit utilizando dos funciones:
 ● celsiusToFahrenheit(celsius): convierte grados Celsius a Fahrenheit.
 ● fahrenheitToCelsius(fahrenheit): convierte grados Fahrenheit a Celsius.
  */
@@ -286,8 +281,64 @@ console.log(celsiusToFahrenheit(25));
 console.log(fahrenheitToCelsius(77));
 
 /** PUNTO 20
- * Escriba un programa que calcule el área y el perímetro de un rectángulo. Usa dos
-funciones:
+ * Escriba un programa que calcule el área y el perímetro de un rectángulo. Usa dos funciones:
 ● calcularArea(largo, ancho): calcula el área del rectángulo.
 ● calcularPerimetro(largo, ancho): calcula el perímetro.
  */
+function calcularAreaRectangulo(largo, ancho){
+    return largo * ancho;
+}
+function calcularPerimetro(largo, ancho){
+    return 2*(largo+ancho);
+}
+let largo = parseInt(prompt("Ingrese el largo del rectángulo: "));
+let ancho = parseInt(prompt("Ingrese el ancho del rectángulo: "));
+
+const area = calcularArea(largo, ancho);
+const perimetro = calcularPerimetro(largo, ancho);
+
+console.log(`El área del rectángulo es: ${area}`);
+console.log(`El perímetro del rectángulo es: ${perimetro}`);
+
+/**PUNTO 21
+ * Escriba un programa que verifique si un número es primo utilizando dos funciones:
+● esPrimo(numero): determina si un número es primo.
+● imprimirResultado(numero): imprime si el número es primo o no, llamando a la función esPrimo.
+ */
+
+function esPrimo(numero){
+    if (numero <= 1){
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0){
+            return false;
+        }
+    }
+    return true;
+}
+function imprimirResultado(numero){
+    if (esPrimo(numero)) {
+        console.log(`${numero} es un número primo.`);
+    } else {
+        console.log(`${numero} no es un número primo.`);
+    }
+}
+const numero = parseInt(prompt("Ingresa un número:"));
+imprimirResultado(numero);
+
+/**PUNTO 22
+ * Escriba un programa que calcule si un estudiante aprueba o reprueba con base en tres notas. Usa tres funciones:
+● calcularPromedio(notas): calcula el promedio de las tres notas.
+● esAprobado(promedio): determina si el estudiante aprueba o no (promedio >= 6).
+● mostrarResultado(aprobado): imprime si el estudiante aprueba o reprueba.
+ */
+function calcularPromedio(notas){
+
+}
+function esAprobado(promedio){
+
+}
+function mostrarResultado(aprobado){
+    
+}

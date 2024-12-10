@@ -73,7 +73,7 @@ function cambiarElemento(){
 }
 // Punto 8
 function imprimirArreglo(array){
-    array.forEach(function(elemento,indice,array){
+    array.forEach(function(elemento,indice){
         console.log(`Elemento ${indice}: ${elemento}`);
     })
 }
@@ -87,7 +87,7 @@ function mostrarCantidadElementos(array){
     });
     return contador;
 }
-//console.log(`El número de elemntos que contiene el arreglo es ${mostrarCantidadElementos(array)}`);
+//console.log(`El número de elementos que contiene el arreglo es ${mostrarCantidadElementos(array)}`);
 
 // Punto 10
 function mostrarIndices(){
@@ -119,4 +119,38 @@ function ordenarArreglos(){
     console.log(frutas);
 
 }
-ordenarArreglos()
+
+
+//Punto 13
+function mostrarLetra(nombres){
+    let contador = 0;
+    nombres.forEach((elemento) => {
+        for(let i=0; i<elemento.length; i++){
+            if(elemento.charAt(i) === 'c'){
+                contador++;
+            }
+        }
+    })
+    console.log(`La letra c aparece ${contador} veces.`);
+}
+let nombres = prompt("Ingrese el arreglo de nombres separado por espacio: ");
+let arrayNombres = nombres.split(" ");
+//mostrarLetra(arrayNombres);
+
+//Punto 14
+function mostrarArreglo(numeros){
+    if(validarNumeros(numeros) === true){
+        console.log("Los números están repetidos porfavor vuelva a ingresar.");
+    }else{
+        return numeros.sort((a,b) => a-b);
+    }
+}
+
+function validarNumeros(numeros){
+    return false;
+}
+
+let arrayNumeros = prompt("Ingrese el arreglo de números separados por coma: ");
+let arrayNum = arrayNumeros.split(",");
+let num = arrayNum.map(Number);
+console.log(`El arreglo ordenado es ${mostrarArreglo(arrayNum)}`);
