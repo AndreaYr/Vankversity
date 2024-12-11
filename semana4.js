@@ -137,20 +137,43 @@ let nombres = prompt("Ingrese el arreglo de nombres separado por espacio: ");
 let arrayNombres = nombres.split(" ");
 //mostrarLetra(arrayNombres);
 
+//Función reutilizable que permite validar datos repetidos.
+function validarRepetidos(array){
+    let op = false;
+    for(let i=0; i<array.length; i++){
+        for(let j = array.length-1; j>i; j--){
+            if(array[i] === array[j]){
+                return true;
+            }else{
+                op += false;
+            }
+        }
+    }
+    return op;
+}
+
 //Punto 14
 function mostrarArreglo(numeros){
-    if(validarNumeros(numeros) === true){
+    if(validarRepetidos(numeros) === true){
         console.log("Los números están repetidos porfavor vuelva a ingresar.");
     }else{
-        return numeros.sort((a,b) => a-b);
+        console.log(`El arreglo ordenado es ${numeros.sort((a,b) => a-b)}`);
     }
 }
-
-function validarNumeros(numeros){
-    return false;
-}
-
 let arrayNumeros = prompt("Ingrese el arreglo de números separados por coma: ");
 let arrayNum = arrayNumeros.split(",");
 let num = arrayNum.map(Number);
-console.log(`El arreglo ordenado es ${mostrarArreglo(arrayNum)}`);
+// mostrarArreglo(num);
+
+//punto 15
+function mostrarLetras(letras){
+    if(validarRepetidos(letras) === true){
+        console.log("El arreglo contiene letras repetidas porfavor vuelva a ingresar.");
+    }else{
+        console.log(`El arreglo ordenado es ${letras.sort()}`);
+    }
+}
+
+let letras = prompt("Ingrese el arreglo de letras separado de espacios:");
+let arrayLetras = letras.split(" ");
+mostrarLetras(arrayLetras);
